@@ -1,0 +1,243 @@
+﻿@model StudyWeb.Models.Posts
+
+@{
+    ViewBag.Title = "UserEditPosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("UserEditPosts", "Posts", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="project" class="project">
+        <div class="container">
+            <div class="card" style="background: rgba(0,0,0,0.5); min-height: 200px;">
+                <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                    <div class="row">
+                        <h1 style="color: white; margin-left: 30px">Đăng bài của bạn tại đây</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <textarea id="contentPosts" name="contentPosts" placeholder="Nhập nội dung bài viết ..." rows="3" style="width: 100%; margin: 30px;margin-top: 10px;margin-bottom: 10px; ">@Model.contentPosts</textarea>
+                    </div>
+                    <div class="row" style="margin-left: 10px">
+                        <div class="col-md-6" style=" margin-top: 15px">
+                            <h2 style="color:white">Thêm ảnh 1 : <input style="color: white; margin-right: 20px" type='file' name="fileUpload1"  /></h2>
+
+                        </div>
+                        <div class="col-md-6" style=" margin-top: 15px; text-align:right">
+                            <h2 style="color:white">Thêm ảnh 2 : <input style="color: white; margin-right: 20px" type='file' name="fileUpload2" /></h2>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 10px">
+                        <div class="col-md-6" style=" margin-top: 15px">
+                            <h2 style="color:white">Thêm ảnh 3 : <input style="color: white; margin-right: 20px" type='file' name="fileUpload3" /></h2>
+
+                        </div>
+                        <div class="col-md-6" style=" margin-top: 15px; text-align: right">
+                            <h2 style="color:white">Thêm ảnh 4 : <input style="color: white; margin-right: 20px" type='file' name="fileUpload4" /></h2>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer" style="text-align: right; height: 60px">
+                    <button type="submit" class="add_posts" style="padding: 5px; padding-right: 10px; padding-left: 10px; margin-right: 30px; background-color: white; color: black">Lưu bài</button>
+                </div>
+                <div>
+                    @ViewBag.success;
+                    @ViewBag.err;
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<style>
+
+    .project {
+        background-image: url('../../Content/images/nen_test.jpg');
+        min-height: 80vh;
+    }
+
+    .btn_a {
+        color: white;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 8px;
+        margin-right: 20px
+    }
+
+        .btn_a:hover {
+            background: white;
+            color: dodgerblue;
+        }
+
+    .css_card-body {
+        color: white;
+    }
+
+    .card-footer {
+        height: 50px;
+    }
+
+        .card-footer input {
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right: 30px;
+            margin-right: 30px;
+        }
+
+        .card-footer img:hover {
+            height: 32px;
+            width: 32px;
+        }
+
+    add_posts:hover {
+        background-color: forestgreen;
+        color: white;
+    }
+
+    img {
+        max-height: 440px;
+        max-width: 540px;
+    }
+
+    .copyright {
+        margin-top: 0;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>UserEditPosts</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Posts</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idUser, "idUser", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idUser", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.idUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.contentPosts, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.contentPosts, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.contentPosts, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imagePosts1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imagePosts1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imagePosts1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imagePosts2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imagePosts2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imagePosts2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imagePosts3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imagePosts3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imagePosts3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imagePosts4, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imagePosts4, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imagePosts4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.datePost, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.datePost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.datePost, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.countLike, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.countLike, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.countLike, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.countComment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.countComment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.countComment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.display, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.display)
+                        @Html.ValidationMessageFor(model => model.display, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

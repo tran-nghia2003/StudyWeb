@@ -1,0 +1,31 @@
+﻿@model StudyWeb.Models.Document
+
+@{
+    ViewBag.Title = "Document";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="project" class="project">
+    <div class="container">
+
+        <div class="card" style="background: rgba(0,0,0,0.5);">
+            <div class="card-header">
+                <h1 style="color: yellow">@Model.contentDocument</h1>
+            </div>
+        </div>
+        <br />
+        <div>
+            <center>
+                <iframe style="height: 900px; width:900px; margin: 50px;" src="/LessonFile/@Model.linkDocument#toolbar=1" width="900" height="900"></iframe>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+
+
+<script src="~/Content/PDF/dpf.js"></script>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StudyWeb.Models.Chapter>
+
+@{
+    ViewBag.Title = "ListChapter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+<div id="project" class="project" style="padding-top: 20px">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5); min-height: 60px ">
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-3" style="margin: 10px">
+                        <strong> <h2 class="text-uppercase" style=" color: white">Danh sách chương</h2>  </strong>
+                    </div>
+                    <div class="col-md-8" style="text-align: right; margin-top: 10px">
+                        @foreach (var item in Model)
+                        {
+                            <a style=" padding: 10px; background-color: white; margin-right: 30px" href="@Url.Action("ListTest","Tests", new { id = item.idSubjects })">Làm kiểm tra</a>
+
+                            <a style=" padding: 10px; background-color: white;" href="@Url.Action("ListDocument","Documents", new { id = item.idSubjects })">Xem tài liệu</a>
+                            break;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-header" style="background-color: whitesmoke;">
+                    <div class="row">
+                        <a style="margin-left: 20px" href="@Url.Action("ListLesson","Lessons", new { id = item.id })"><strong class="text-uppercase">@item.chapterName</strong></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+</div>
+<style>
+    .project {
+        min-height: 100vh;
+    }
+</style>

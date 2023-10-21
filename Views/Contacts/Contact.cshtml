@@ -1,0 +1,103 @@
+﻿@model StudyWeb.Models.Contacts
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="contact" class="contact">
+        <div class="con_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="main_form">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6" style="color: red">
+                                        @ViewData["ErrorFullname"]
+                                    </div>
+                                    <div class="col-md-6 col-sm-6" style="color: red">
+                                        @ViewData["ErrorMail"]
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="contactus" placeholder="Họ và tên" type="text" name="fullname">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="contactus" placeholder="Địa chỉ mail" type="text" name="maill">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6" style="color: red">
+                                        @ViewData["ErrorPhone"]
+                                    </div>
+                                    <div class="col-md-6 col-sm-6" style="color: red">
+                                        @ViewData["ErrorAddress"]
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="contactus" placeholder="Số điện thoại" type="text" name="phone">
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="contactus" placeholder="Địa chỉ" type="text" name="address">
+                                    </div>
+                                    <div class="col-md-12" style="color: red">
+                                        @ViewData["ErrorMessage"]
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input class="contactusmess" placeholder="Nội dung" type="text" name="message" Message="message">
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button class="send_btn" type="submit">Gửi</button>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br />
+<br />
+
+
+
+<!-- end contact section -->
+<!--  footer -->
+<footer>
+    <div class="footer" style="padding: 50px;" ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="inror_box">
+                        <h3 class="inror_title">INFORMATION </h3>
+                        <li class="inror_items"><img src="/Content/images/gg-circle.png" alt=""> STUDY FREE</li>
+                        <li class="inror_items">   Nơi cung cấp và trao đổi kiến thức trực tuyến nhanh chóng chính xác. Nơi cung cấp những khóa học chất lượng.</li>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="inror_box">
+                        <h3 class="inror_title">SERVICES  </h3>
+                        <li class="inror_items">Dịch vụ của chúng tôi: </li>
+                        <li class="inror_items"><i class="fa fa-arrow-circle-right"></i> Khóa học online.</li>
+                        <li class="inror_items"><i class="fa fa-arrow-circle-right"></i> Dạy kèm tiếng anh.</li>
+                        <li class="inror_items"><i class="fa fa-arrow-circle-right"></i> Luyện thi chuyên đề.</li>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="inror_box">
+                        <h3 class="inror_title">CONTACTS  </h3>
+                        <li class="inror_items"><i class="fa fa-map-marker"></i> Số 8, đường 120, phường Tân Phú, quận 9, TP.HCM</li>
+                        <li class="inror_items"><i class="fa fa-phone"></i> 0335056407</li>
+                        <li class="inror_items"><i class="fa fa-envelope-o"></i> studyweb.free@gmail.com</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

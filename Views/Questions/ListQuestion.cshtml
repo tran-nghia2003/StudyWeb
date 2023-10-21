@@ -1,0 +1,187 @@
+﻿@model IEnumerable<StudyWeb.Models.Question>
+
+@{
+    ViewBag.Title = "ListQuestion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script language="javascript">
+    document.getElementById("display").style.display = 'none';
+</script>
+
+<div class="time_card">
+    <div id="countdown">
+        <h3 style="color: white; padding-top: 25px;">Thời gian còn lại : <span id="minute"> </span> phút <span id="second"> </span> giây</h3>
+    </div>
+</div>
+<div id="endTime" style="display: none">
+    <div class="endTime_card">
+        <div id="countdown" style="padding-top: 195px">
+            <h1 style="color: red">Đã hết thời gian làm bài!</h1>
+        </div>
+    </div>
+</div>
+<script>
+    var timeTest = 0;
+    var n = @Session["timeTest"];
+    time(n*60);
+    function time(x) {
+        timeTest = x;
+        countdown();
+    }
+    function countdown() {
+        timeTest--;
+        minute = Math.floor(timeTest / 60);
+        second = timeTest % 60;
+        document.getElementById("minute").innerHTML = minute;
+        document.getElementById("second").innerHTML = second;
+        if (timeTest > 0) {
+            setTimeout(countdown, 1000);
+        }else {
+            document.getElementById("endTime").style.display = "block";
+            document.getElementById("hidden").style.display = "none";
+            document.getElementById("card_header").style.display = "none"; 
+            document.getElementById("btn_submit").style.textAlign = "center";
+        }
+
+    }
+</script>
+<div id="endTime" style="display: none">
+    <div class="endTime_card">
+        <div id="countdown" style="padding-top: 325px">
+            <h1 style="color: red">Đã hết thời gian làm bài!</h1>
+        </div>
+    </div>
+</div>
+<div id="project" style="display: block" class="project">
+    
+    
+    <div class="container">
+        <div id="card_header" class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row" style="justify-content: center">
+                    <strong class="text-uppercase" style="font-size: 25px;">Kiểm tra</strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        @{
+            int i = 0;
+        }
+        
+        @using (Html.BeginForm("ResultTest", "Questions", new { id = Session["idTest"]}, FormMethod.Post))
+        {
+            <div id="hidden">
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <strong style="font-size: 20px;" class="text-uppercase">Câu @i : @item.question1</strong>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:center">
+                                        <strong style="font-size: 20px;" class="text-uppercase">(@item.score điểm)</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            @if (item.imageQuestion1 != null)
+                            {
+                                <div style="text-align: center">
+                                    <img height="300" width="600" src="~/ImagesQuestion/@item.imageQuestion1" />
+                                </div>
+                            }
+                            <div style="font-size: 20px; margin-left: 30px">
+                                @Html.RadioButton(item.id.ToString(), item.answer1) A. @item.answer1 <br />
+                                @Html.RadioButton(item.id.ToString(), item.answer2) B. @item.answer2 <br />
+                                @Html.RadioButton(item.id.ToString(), item.answer3) C. @item.answer3 <br />
+                                @Html.RadioButton(item.id.ToString(), item.answer4) D. @item.answer4 <br />
+                            </div>
+                        </div>
+                    </div><br />
+                }
+            </div>
+            
+
+            <div id="btn_submit" class="btn_complete">
+                <input style="background-color: greenyellow; color: black; padding: 5px; padding-left: 15px; padding-right: 15px" type="submit"  value="Nộp Bài" />
+            </div>
+            
+        }
+        <br>
+    </div>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<style>
+    .time_card {
+        position: fixed;
+        z-index: 3;
+        right: 0px;
+        bottom: 0px;
+        background: rgba(0,0,0,0.5);
+        text-align: center;
+        height: 100px;
+        width: 300px;
+    }
+
+    .endTime_card {
+        text-align: center;
+        width: 100%;
+        height: 100px;
+    }
+
+    .endTime_card a:hover{
+        background-color: lawngreen;
+        color: white;
+        padding: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
+        border-radius:8px;
+    }
+    .card {
+        background-color: white;
+    }
+
+    .card-header {
+        width: 100%;
+        background-color: white;
+    }
+
+        .card-header.row {
+            background-color: white;
+        }
+
+    .btn_complete {
+        text-align: right;
+    }
+
+        .btn_complete a {
+            text-align: center;
+            font-size: 25px;
+            color: white;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background: #19dd01;
+            border: 1px;
+            border-radius: 8px;
+        }
+
+            .btn_complete a:hover {
+                background-color: aqua;
+                color: red;
+            }
+
+    .project {
+        min-height: 70vh;
+    }
+</style>

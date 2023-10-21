@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudyWeb.Models.Chapter>
+
+@{
+    ViewBag.Title = "ListChapterAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div id="project" class="project" style="padding-top: 20px">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row">
+                    <strong class="text-uppercase">Danh sách chương</strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="text-align: right">
+            <a style="padding: 10px; background-color: forestgreen; color: white" href="@Url.Action("Create","Chapters")">
+                Thêm chương
+            </a>
+        </div>
+        <br />
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-header" style="background-color: whitesmoke;">
+                    <div class="row">
+                        <a style="margin-left: 20px" href="@Url.Action("ListLessonAdmin","Lessons", new { id = item.id })"><strong class="text-uppercase">@item.chapterName</strong></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+</div>

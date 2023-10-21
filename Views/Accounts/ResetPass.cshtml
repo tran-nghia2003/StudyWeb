@@ -1,0 +1,87 @@
+﻿@model StudyWeb.Models.Account
+
+@{
+    ViewBag.Title = "ResetPass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="project" style="padding-top: 0px">
+    <div class="container" style="margin-top: 10%;">
+        <div class="row" style=" justify-content: center;">
+            <div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,0.5); min-height: 400px">
+                <div class="text-center">
+                    <h3 style="color: white"><i class="fa fa-lock fa-4x"></i></h3><br />
+                    <h2 class="text-center" style="color: white">Quên mật khẩu?</h2>
+                    <p style="color: white">Đổi mật mới mật khẩu của bạn tại đây.</p><br />
+                    <div class="panel-body" id="div1">
+                        @using (Html.BeginForm("ResetPass", "Accounts", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div id="register-form" role="form" autocomplete="off" class="form" method="post">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"></span>
+                                        <input style="height: 40px" id="emaill" name="emaill" class="form-control" type="email" value="@Model.maill">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"></span>
+                                        <input style="height: 40px" id="password" name="password" placeholder="Nhập mật khẩu mới" class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"></span>
+                                        <input style="height: 40px" id="password" name="respassword" placeholder="Nhập lại mật khẩu" class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="color: red; text-align: left">
+                                        @ViewData["Error2"]
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"></span>
+                                        <input style="height: 40px" id="confirm" name="confirm" placeholder="Mã xác nhận" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="color: red; text-align: left">
+                                        @ViewData["Error1"]
+                                    </div>
+                                </div>
+                                
+                                <br />
+                                <div class="form-group">
+                                    <input name="recover-submit" class="btn btn-lg btn-primary btn-block set_hover" value="Xác nhận" type="submit">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+
+
+<style>
+    body {
+        background-image: url('../../Content/images/background113.jpg');
+    }
+
+    .set_hover:hover {
+        background-color: white;
+        color: forestgreen;
+        border: solid 2px forestgreen;
+    }
+
+    .form-gap {
+        padding-top: 70px;
+    }
+</style>

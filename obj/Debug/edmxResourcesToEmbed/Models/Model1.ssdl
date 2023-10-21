@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudyWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idType" Type="int" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="imageUser" Type="nvarchar" MaxLength="500" />
+    <Property Name="maill" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="11" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Classs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="className" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="imageClass" Type="nvarchar" MaxLength="100" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPosts" Type="int" />
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="idComment" Type="int" />
+    <Property Name="contentComment" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="imageComment1" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageComment2" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageComment3" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageComment4" Type="nvarchar" MaxLength="500" />
+    <Property Name="likeComment" Type="int" />
+    <Property Name="dateComment" Type="datetime" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="maill" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="11" />
+    <Property Name="address" Type="nvarchar" MaxLength="500" />
+    <Property Name="message" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="dateSend" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSubjects" Type="int" Nullable="false" />
+    <Property Name="chapterName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSubjects" Type="int" />
+    <Property Name="contentDocument" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="linkDocument" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageDocument" Type="nvarchar" MaxLength="500" />
+    <Property Name="dateUpload" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChapter" Type="int" Nullable="false" />
+    <Property Name="contentLesson" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="linkLesson" Type="nvarchar" MaxLength="500" />
+    <Property Name="status" Type="nvarchar" MaxLength="200" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="contentPosts" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="imagePosts1" Type="nvarchar" MaxLength="500" />
+    <Property Name="imagePosts2" Type="nvarchar" MaxLength="500" />
+    <Property Name="imagePosts3" Type="nvarchar" MaxLength="500" />
+    <Property Name="imagePosts4" Type="nvarchar" MaxLength="500" />
+    <Property Name="datePost" Type="datetime" />
+    <Property Name="countLike" Type="int" />
+    <Property Name="countComment" Type="int" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTest" Type="int" Nullable="false" />
+    <Property Name="question" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="imageQuestion1" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageQuestion2" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageQuestion3" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageQuestion4" Type="nvarchar" MaxLength="500" />
+    <Property Name="answer1" Type="nvarchar" MaxLength="4000" />
+    <Property Name="answer2" Type="nvarchar" MaxLength="4000" />
+    <Property Name="answer3" Type="nvarchar" MaxLength="4000" />
+    <Property Name="answer4" Type="nvarchar" MaxLength="4000" />
+    <Property Name="correctAnswer" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="imageAnswer1" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageAnswer2" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageAnswer3" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageAnswer4" Type="nvarchar" MaxLength="500" />
+    <Property Name="score" Type="float" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTest" Type="int" Nullable="false" />
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="score" Type="float" Nullable="false" />
+    <Property Name="dateAdd" Type="datetime" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idClass" Type="int" Nullable="false" />
+    <Property Name="subjectName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="imageSubjects" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSubjects" Type="int" Nullable="false" />
+    <Property Name="nameTest" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="timeTest" Type="int" Nullable="false" />
+    <Property Name="dateUpload" Type="date" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="TypeAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="typeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSubjects" Type="int" Nullable="false" />
+    <Property Name="nameVideo" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="describe" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="linkVideo" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="dateUpload" Type="datetime" />
+    <Property Name="countLike" Type="int" />
+    <Property Name="countComment" Type="int" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="display" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Account_TypeAccount">
+    <End Role="TypeAccount" Type="Self.TypeAccount" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeAccount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="idType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Posts">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="idPosts" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chapter_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lesson_Chapter">
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="1" />
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="idChapter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Test">
+    <End Role="Test" Type="Self.Test" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="idTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Score_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Score" Type="Self.Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Score_Test">
+    <End Role="Test" Type="Self.Test" Multiplicity="1" />
+    <End Role="Score" Type="Self.Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="idTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subjects_Classs">
+    <End Role="Classs" Type="Self.Classs" Multiplicity="1" />
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Subjects">
+        <PropertyRef Name="idClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Test_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Test" Type="Self.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudyWebModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Classs" EntityType="Self.Classs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chapter" EntityType="Self.Chapter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeAccount" EntityType="Self.TypeAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
+      <End Role="TypeAccount" EntitySet="TypeAccount" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Account" Association="Self.FK_Comment_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Posts" Association="Self.FK_Comment_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chapter_Subjects" Association="Self.FK_Chapter_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Chapter" EntitySet="Chapter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Subjects" Association="Self.FK_Document_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lesson_Chapter" Association="Self.FK_Lesson_Chapter">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Account" Association="Self.FK_Posts_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Test" Association="Self.FK_Question_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Score_Account" Association="Self.FK_Score_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Score_Test" Association="Self.FK_Score_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subjects_Classs" Association="Self.FK_Subjects_Classs">
+      <End Role="Classs" EntitySet="Classs" />
+      <End Role="Subjects" EntitySet="Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Test_Subjects" Association="Self.FK_Test_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Test" EntitySet="Test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Subjects" Association="Self.FK_Video_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

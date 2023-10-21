@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudyWebModelStoreContainer" CdmEntityContainer="StudyWebEntities">
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="StudyWebModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="maill" ColumnName="maill" />
+          <ScalarProperty Name="imageUser" ColumnName="imageUser" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classs">
+      <EntityTypeMapping TypeName="StudyWebModel.Classs">
+        <MappingFragment StoreEntitySet="Classs">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="imageClass" ColumnName="imageClass" />
+          <ScalarProperty Name="className" ColumnName="className" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="StudyWebModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="dateComment" ColumnName="dateComment" />
+          <ScalarProperty Name="likeComment" ColumnName="likeComment" />
+          <ScalarProperty Name="imageComment4" ColumnName="imageComment4" />
+          <ScalarProperty Name="imageComment3" ColumnName="imageComment3" />
+          <ScalarProperty Name="imageComment2" ColumnName="imageComment2" />
+          <ScalarProperty Name="imageComment1" ColumnName="imageComment1" />
+          <ScalarProperty Name="contentComment" ColumnName="contentComment" />
+          <ScalarProperty Name="idComment" ColumnName="idComment" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idPosts" ColumnName="idPosts" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="StudyWebModel.Contacts">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dateSend" ColumnName="dateSend" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="maill" ColumnName="maill" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapter">
+      <EntityTypeMapping TypeName="StudyWebModel.Chapter">
+        <MappingFragment StoreEntitySet="Chapter">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="chapterName" ColumnName="chapterName" />
+          <ScalarProperty Name="idSubjects" ColumnName="idSubjects" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Document">
+      <EntityTypeMapping TypeName="StudyWebModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dateUpload" ColumnName="dateUpload" />
+          <ScalarProperty Name="imageDocument" ColumnName="imageDocument" />
+          <ScalarProperty Name="linkDocument" ColumnName="linkDocument" />
+          <ScalarProperty Name="contentDocument" ColumnName="contentDocument" />
+          <ScalarProperty Name="idSubjects" ColumnName="idSubjects" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lesson">
+      <EntityTypeMapping TypeName="StudyWebModel.Lesson">
+        <MappingFragment StoreEntitySet="Lesson">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="linkLesson" ColumnName="linkLesson" />
+          <ScalarProperty Name="contentLesson" ColumnName="contentLesson" />
+          <ScalarProperty Name="idChapter" ColumnName="idChapter" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="StudyWebModel.Posts">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="countComment" ColumnName="countComment" />
+          <ScalarProperty Name="countLike" ColumnName="countLike" />
+          <ScalarProperty Name="datePost" ColumnName="datePost" />
+          <ScalarProperty Name="imagePosts4" ColumnName="imagePosts4" />
+          <ScalarProperty Name="imagePosts3" ColumnName="imagePosts3" />
+          <ScalarProperty Name="imagePosts2" ColumnName="imagePosts2" />
+          <ScalarProperty Name="imagePosts1" ColumnName="imagePosts1" />
+          <ScalarProperty Name="contentPosts" ColumnName="contentPosts" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="StudyWebModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="imageAnswer4" ColumnName="imageAnswer4" />
+          <ScalarProperty Name="imageAnswer3" ColumnName="imageAnswer3" />
+          <ScalarProperty Name="imageAnswer2" ColumnName="imageAnswer2" />
+          <ScalarProperty Name="imageAnswer1" ColumnName="imageAnswer1" />
+          <ScalarProperty Name="correctAnswer" ColumnName="correctAnswer" />
+          <ScalarProperty Name="answer4" ColumnName="answer4" />
+          <ScalarProperty Name="answer3" ColumnName="answer3" />
+          <ScalarProperty Name="answer2" ColumnName="answer2" />
+          <ScalarProperty Name="answer1" ColumnName="answer1" />
+          <ScalarProperty Name="imageQuestion4" ColumnName="imageQuestion4" />
+          <ScalarProperty Name="imageQuestion3" ColumnName="imageQuestion3" />
+          <ScalarProperty Name="imageQuestion2" ColumnName="imageQuestion2" />
+          <ScalarProperty Name="imageQuestion1" ColumnName="imageQuestion1" />
+          <ScalarProperty Name="question1" ColumnName="question" />
+          <ScalarProperty Name="idTest" ColumnName="idTest" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Score">
+      <EntityTypeMapping TypeName="StudyWebModel.Score">
+        <MappingFragment StoreEntitySet="Score">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="dateAdd" ColumnName="dateAdd" />
+          <ScalarProperty Name="score1" ColumnName="score" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idTest" ColumnName="idTest" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="StudyWebModel.Subjects">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="imageSubjects" ColumnName="imageSubjects" />
+          <ScalarProperty Name="subjectName" ColumnName="subjectName" />
+          <ScalarProperty Name="idClass" ColumnName="idClass" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Test">
+      <EntityTypeMapping TypeName="StudyWebModel.Test">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dateUpload" ColumnName="dateUpload" />
+          <ScalarProperty Name="timeTest" ColumnName="timeTest" />
+          <ScalarProperty Name="nameTest" ColumnName="nameTest" />
+          <ScalarProperty Name="idSubjects" ColumnName="idSubjects" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAccount">
+      <EntityTypeMapping TypeName="StudyWebModel.TypeAccount">
+        <MappingFragment StoreEntitySet="TypeAccount">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="typeName" ColumnName="typeName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="StudyWebModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="countComment" ColumnName="countComment" />
+          <ScalarProperty Name="countLike" ColumnName="countLike" />
+          <ScalarProperty Name="dateUpload" ColumnName="dateUpload" />
+          <ScalarProperty Name="linkVideo" ColumnName="linkVideo" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="nameVideo" ColumnName="nameVideo" />
+          <ScalarProperty Name="idSubjects" ColumnName="idSubjects" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

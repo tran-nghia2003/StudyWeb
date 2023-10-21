@@ -1,0 +1,45 @@
+﻿@model StudyWeb.Models.Lesson
+
+@{
+    ViewBag.Title = "Lesson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row" style="justify-content:center">
+                    <strong class="text-uppercase">
+                        <h1 style="color: white;">@Model.Chapter.chapterName</h1>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card" style="background: rgba(0,0,0,0.5);">
+            <div class="card-header">
+                <h1 style="color: yellow">@Model.contentLesson</h1>
+            </div>
+        </div><br />
+        <div>
+            <center>
+                <iframe style="height: 900px; width:900px; margin: 50px;" src="/LessonFile/@Model.linkLesson#toolbar=1" width="900" height="900"></iframe>
+            </center>
+        </div>
+    </div>
+</div>
+<style>
+    .project {
+        background-image: url('../../Content/images/homelearning.jpg');
+        min-height: 90vh;
+    }
+</style>
+
+
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+
+
+<script src="~/Content/PDF/dpf.js"></script>

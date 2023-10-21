@@ -1,0 +1,235 @@
+﻿@model StudyWeb.Models.Posts
+
+@{
+    ViewBag.Title = "UserDeletePosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="project" class="project">
+        <div class="container">
+            <div class="card" style="background: rgba(0,0,0,0.5); min-height: 100px;">
+                <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img style="margin-left: 30px; margin-right: 15px" height="64" width="64" src="/ImagesUser/@Model.Account.imageUser" alt="User" />
+                        </div>
+                        <div class="col-md-8">
+                            <h1 style="color: white; margin-left: 20px; margin-top: 10px">@Model.Account.fullname</h1>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 style="color: white; margin-top: 13px">@Model.datePost</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="css_card-body">
+                        <div class="row" style="border-bottom: solid 2px; border-color: black;">
+                            <h1 style="color: white; margin-left: 30px">@Model.contentPosts</h1>
+                        </div>
+                        <br />
+                        @if (Model.imagePosts1 == null && Model.imagePosts2 == null && Model.imagePosts3 == null && Model.imagePosts4 == null)
+                        {
+
+                        }
+                        else if (Model.imagePosts2 == null && Model.imagePosts3 == null && Model.imagePosts4 == null)
+                        {
+                            <div style="min-height: 0px;">
+                                <div style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts1" />
+                                </div>
+                            </div>
+                        }
+                        else if (Model.imagePosts3 == null && Model.imagePosts4 == null)
+                        {
+                            <div class="col-md-6" style="text-align: center">
+                                <img src="/ImagesPosts/@Model.imagePosts1" />
+                            </div>
+                            <div class="col-md-6" style="text-align: center">
+                                <img src="/ImagesPosts/@Model.imagePosts2" />
+                            </div>
+                        }
+                        else if (Model.imagePosts4 == null)
+                        {
+                            <div class="row" style="min-height: 0px;">
+                                <div class="col-md-6" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts1" />
+                                </div>
+                                <div class="col-md-6" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts2" />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div style="min-height: 0px;">
+                                <div style="text-align: center">
+                                    <div style="text-align: center">
+                                        <img src="/ImagesPosts/@Model.imagePosts3" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row " style="min-height: 0px;">
+                                <div class="col-md-6 thumbnail" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts1" />
+                                </div>
+                                <div class="col-md-6 thumbnail" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts2" />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row" style="min-height: 0px;">
+                                <div class="col-md-6 thumbnail" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts3" />
+                                </div>
+                                <div class="col-md-6 thumbnail" style="text-align: center">
+                                    <img src="/ImagesPosts/@Model.imagePosts4" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer" style=" background: rgba(0,0,0,0.5); margin-top: 30px; text-align: right">
+                    <button type="submit" class="add_posts" style="padding: 5px; padding-right: 10px; padding-left: 10px; margin-right: 30px; background-color: white; color: black">Xác nhận xóa</button>
+                </div>
+            </div><br /><br />
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>UserDeletePosts</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Posts</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.contentPosts)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contentPosts)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imagePosts1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imagePosts1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imagePosts2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imagePosts2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imagePosts3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imagePosts3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imagePosts4)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imagePosts4)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.datePost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.datePost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.countLike)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.countLike)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.countComment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.countComment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.display)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.display)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Account.fullname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Account.fullname)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@

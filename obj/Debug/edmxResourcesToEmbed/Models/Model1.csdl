@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudyWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="StudyWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="StudyWebModel.Account" />
+    <EntitySet Name="Classs" EntityType="StudyWebModel.Classs" />
+    <EntitySet Name="Comment" EntityType="StudyWebModel.Comment" />
+    <EntitySet Name="Contacts" EntityType="StudyWebModel.Contacts" />
+    <EntitySet Name="Chapter" EntityType="StudyWebModel.Chapter" />
+    <EntitySet Name="Document" EntityType="StudyWebModel.Document" />
+    <EntitySet Name="Lesson" EntityType="StudyWebModel.Lesson" />
+    <EntitySet Name="Posts" EntityType="StudyWebModel.Posts" />
+    <EntitySet Name="Question" EntityType="StudyWebModel.Question" />
+    <EntitySet Name="Score" EntityType="StudyWebModel.Score" />
+    <EntitySet Name="Subjects" EntityType="StudyWebModel.Subjects" />
+    <EntitySet Name="Test" EntityType="StudyWebModel.Test" />
+    <EntitySet Name="TypeAccount" EntityType="StudyWebModel.TypeAccount" />
+    <EntitySet Name="Video" EntityType="StudyWebModel.Video" />
+    <AssociationSet Name="FK_Account_TypeAccount" Association="StudyWebModel.FK_Account_TypeAccount">
+      <End Role="TypeAccount" EntitySet="TypeAccount" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Account" Association="StudyWebModel.FK_Comment_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Account" Association="StudyWebModel.FK_Posts_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Score_Account" Association="StudyWebModel.FK_Score_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subjects_Classs" Association="StudyWebModel.FK_Subjects_Classs">
+      <End Role="Classs" EntitySet="Classs" />
+      <End Role="Subjects" EntitySet="Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Posts" Association="StudyWebModel.FK_Comment_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chapter_Subjects" Association="StudyWebModel.FK_Chapter_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Chapter" EntitySet="Chapter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lesson_Chapter" Association="StudyWebModel.FK_Lesson_Chapter">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Subjects" Association="StudyWebModel.FK_Document_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Test" Association="StudyWebModel.FK_Question_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Score_Test" Association="StudyWebModel.FK_Score_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Test_Subjects" Association="StudyWebModel.FK_Test_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Test" EntitySet="Test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Subjects" Association="StudyWebModel.FK_Video_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idType" Type="Int32" Nullable="false" />
+    <Property Name="fullname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="imageUser" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="maill" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="TypeAccount" Relationship="StudyWebModel.FK_Account_TypeAccount" FromRole="Account" ToRole="TypeAccount" />
+    <NavigationProperty Name="Comment" Relationship="StudyWebModel.FK_Comment_Account" FromRole="Account" ToRole="Comment" />
+    <NavigationProperty Name="Posts" Relationship="StudyWebModel.FK_Posts_Account" FromRole="Account" ToRole="Posts" />
+    <NavigationProperty Name="Score" Relationship="StudyWebModel.FK_Score_Account" FromRole="Account" ToRole="Score" />
+  </EntityType>
+  <EntityType Name="Classs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="className" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imageClass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Subjects" Relationship="StudyWebModel.FK_Subjects_Classs" FromRole="Classs" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPosts" Type="Int32" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="idComment" Type="Int32" />
+    <Property Name="contentComment" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="imageComment1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageComment2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageComment3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageComment4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="likeComment" Type="Int32" />
+    <Property Name="dateComment" Type="DateTime" Precision="3" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Account" Relationship="StudyWebModel.FK_Comment_Account" FromRole="Comment" ToRole="Account" />
+    <NavigationProperty Name="Posts" Relationship="StudyWebModel.FK_Comment_Posts" FromRole="Comment" ToRole="Posts" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fullname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="maill" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="dateSend" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSubjects" Type="Int32" Nullable="false" />
+    <Property Name="chapterName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Subjects" Relationship="StudyWebModel.FK_Chapter_Subjects" FromRole="Chapter" ToRole="Subjects" />
+    <NavigationProperty Name="Lesson" Relationship="StudyWebModel.FK_Lesson_Chapter" FromRole="Chapter" ToRole="Lesson" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSubjects" Type="Int32" />
+    <Property Name="contentDocument" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="linkDocument" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageDocument" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="dateUpload" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Subjects" Relationship="StudyWebModel.FK_Document_Subjects" FromRole="Document" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idChapter" Type="Int32" Nullable="false" />
+    <Property Name="contentLesson" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="linkLesson" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Chapter" Relationship="StudyWebModel.FK_Lesson_Chapter" FromRole="Lesson" ToRole="Chapter" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="contentPosts" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="imagePosts1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imagePosts2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imagePosts3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imagePosts4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="datePost" Type="DateTime" Precision="3" />
+    <Property Name="countLike" Type="Int32" />
+    <Property Name="countComment" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Account" Relationship="StudyWebModel.FK_Posts_Account" FromRole="Posts" ToRole="Account" />
+    <NavigationProperty Name="Comment" Relationship="StudyWebModel.FK_Comment_Posts" FromRole="Posts" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idTest" Type="Int32" Nullable="false" />
+    <Property Name="question1" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="imageQuestion1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageQuestion2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageQuestion3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageQuestion4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="answer1" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="answer2" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="answer3" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="answer4" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="correctAnswer" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="imageAnswer1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageAnswer2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageAnswer3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageAnswer4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="score" Type="Double" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Test" Relationship="StudyWebModel.FK_Question_Test" FromRole="Question" ToRole="Test" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idTest" Type="Int32" Nullable="false" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="score1" Type="Double" Nullable="false" />
+    <Property Name="dateAdd" Type="DateTime" Precision="3" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Account" Relationship="StudyWebModel.FK_Score_Account" FromRole="Score" ToRole="Account" />
+    <NavigationProperty Name="Test" Relationship="StudyWebModel.FK_Score_Test" FromRole="Score" ToRole="Test" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idClass" Type="Int32" Nullable="false" />
+    <Property Name="subjectName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imageSubjects" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Classs" Relationship="StudyWebModel.FK_Subjects_Classs" FromRole="Subjects" ToRole="Classs" />
+    <NavigationProperty Name="Chapter" Relationship="StudyWebModel.FK_Chapter_Subjects" FromRole="Subjects" ToRole="Chapter" />
+    <NavigationProperty Name="Document" Relationship="StudyWebModel.FK_Document_Subjects" FromRole="Subjects" ToRole="Document" />
+    <NavigationProperty Name="Test" Relationship="StudyWebModel.FK_Test_Subjects" FromRole="Subjects" ToRole="Test" />
+    <NavigationProperty Name="Video" Relationship="StudyWebModel.FK_Video_Subjects" FromRole="Subjects" ToRole="Video" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSubjects" Type="Int32" Nullable="false" />
+    <Property Name="nameTest" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="timeTest" Type="Int32" Nullable="false" />
+    <Property Name="dateUpload" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Question" Relationship="StudyWebModel.FK_Question_Test" FromRole="Test" ToRole="Question" />
+    <NavigationProperty Name="Score" Relationship="StudyWebModel.FK_Score_Test" FromRole="Test" ToRole="Score" />
+    <NavigationProperty Name="Subjects" Relationship="StudyWebModel.FK_Test_Subjects" FromRole="Test" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="TypeAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="typeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Account" Relationship="StudyWebModel.FK_Account_TypeAccount" FromRole="TypeAccount" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSubjects" Type="Int32" Nullable="false" />
+    <Property Name="nameVideo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="describe" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="linkVideo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="dateUpload" Type="DateTime" Precision="3" />
+    <Property Name="countLike" Type="Int32" />
+    <Property Name="countComment" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="display" Type="Boolean" />
+    <NavigationProperty Name="Subjects" Relationship="StudyWebModel.FK_Video_Subjects" FromRole="Video" ToRole="Subjects" />
+  </EntityType>
+  <Association Name="FK_Account_TypeAccount">
+    <End Type="StudyWebModel.TypeAccount" Role="TypeAccount" Multiplicity="1" />
+    <End Type="StudyWebModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeAccount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="idType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Account">
+    <End Type="StudyWebModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="StudyWebModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Account">
+    <End Type="StudyWebModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="StudyWebModel.Posts" Role="Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Score_Account">
+    <End Type="StudyWebModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="StudyWebModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subjects_Classs">
+    <End Type="StudyWebModel.Classs" Role="Classs" Multiplicity="1" />
+    <End Type="StudyWebModel.Subjects" Role="Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Subjects">
+        <PropertyRef Name="idClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Posts">
+    <End Type="StudyWebModel.Posts" Role="Posts" Multiplicity="0..1" />
+    <End Type="StudyWebModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="idPosts" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chapter_Subjects">
+    <End Type="StudyWebModel.Subjects" Role="Subjects" Multiplicity="1" />
+    <End Type="StudyWebModel.Chapter" Role="Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lesson_Chapter">
+    <End Type="StudyWebModel.Chapter" Role="Chapter" Multiplicity="1" />
+    <End Type="StudyWebModel.Lesson" Role="Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="idChapter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Subjects">
+    <End Type="StudyWebModel.Subjects" Role="Subjects" Multiplicity="0..1" />
+    <End Type="StudyWebModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Test">
+    <End Type="StudyWebModel.Test" Role="Test" Multiplicity="1" />
+    <End Type="StudyWebModel.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="idTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Score_Test">
+    <End Type="StudyWebModel.Test" Role="Test" Multiplicity="1" />
+    <End Type="StudyWebModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="idTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Test_Subjects">
+    <End Type="StudyWebModel.Subjects" Role="Subjects" Multiplicity="1" />
+    <End Type="StudyWebModel.Test" Role="Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Subjects">
+    <End Type="StudyWebModel.Subjects" Role="Subjects" Multiplicity="1" />
+    <End Type="StudyWebModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="idSubjects" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<StudyWeb.Models.Subjects>
+
+@{
+    ViewBag.Title = "ListSubjectsTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row">
+                    <strong class="text-uppercase">Danh sách môn học</strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row" style="justify-content: center">
+            @foreach (var item in Model)
+            {
+                <div class="product_main">
+                    <a href="@Url.Action("ListTest", "Tests", new { id = item.id})">
+                        <div class="project_box">
+                            <div class="dark_white_bg" style=" background-color: rgba(0,0,0,0.5); ">
+                                <div>
+                                    <img src="~/ImagesSubject/@item.imageSubjects" alt="#" />
+                                    <br>
+                                    <h1 style="color: white">@item.subjectName</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .project {
+        background-image: url('../../Content/images/anh-nen-class.jpg');
+        min-height: 100vh;
+    }
+
+    .dark_white_bg:hover {
+        background-color: white;
+        color: black;
+    }
+</style>

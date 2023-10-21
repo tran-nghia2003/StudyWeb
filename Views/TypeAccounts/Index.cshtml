@@ -1,0 +1,39 @@
+﻿@model IEnumerable<StudyWeb.Models.TypeAccount>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr style="text-align: center; background-color: aqua">
+        <th>
+            Tên loại tài khoản
+        </th>
+        <th>
+            Hiển thị
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr  style="text-align: center">
+        <td>
+            @Html.DisplayFor(modelItem => item.typeName)
+        </td>
+        <td>
+            @item.display.ToString()
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

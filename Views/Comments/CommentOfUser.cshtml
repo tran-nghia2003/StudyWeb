@@ -1,0 +1,118 @@
+﻿@model IEnumerable<StudyWeb.Models.Comment>
+
+@{
+    ViewBag.Title = "CommentOfUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card" style="background: rgba(0,0,0,0.5);">
+            <div class="card-body">
+                @foreach (var item in Model)
+                {
+                    if (item.idPosts == null)
+                    {
+
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ListComments","Comments", new { id = item.idPosts })">
+                            <div class="card-header" style="border: solid 1px; border-color: white; border-radius: 12px; background: rgba(0,0,0,0.5);">
+                                <div class="row" style="margin: 10px">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <img style="width: 54px; height: 54px; margin-left: 10px; padding: 8px; border: solid 1px; border-color: blue; background-color: white; border-radius: 30px; " src="/ImagesUser/@item.Account.imageUser" alt="User" />
+                                            <h1 style="color: white; margin-left: 10px;margin-top: 10px">Bạn đã bình luận bài viết @item.idPosts</h1>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" style="text-align: right">
+                                        <h1 style="color: white; margin-left: 10px;margin-top: 10px">@item.dateComment</h1>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin: 10px">
+                                    <h2 style="color: white; margin-left: 10px;margin-top: 10px">
+                                    </h2>
+                                </div>
+                                <div class="row" style="margin:10px">
+                                    <img style="width: 42px; height: 42px; margin-left: 10px; padding: 8px; border: solid 1px; border-color: blue; background-color: white; border-radius: 30px; " src="/ImagesUser/@item.Account.imageUser" alt="User" />
+                                    <div class="col-md-11 ">
+                                        <h2 style="background-color: white; color: black; padding:10px; padding-left: 15px; padding-right: 15px; border-radius: 15px; height:90%">
+                                            @item.contentComment
+                                        </h2>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="css_card-body">
+                                    @if (item.imageComment1 == null && item.imageComment2 == null && item.imageComment2 == null && item.imageComment4 == null)
+                                    {
+
+                                    }
+                                    else if (item.imageComment1 != null && item.imageComment2 == null && item.imageComment3 == null && item.imageComment4 == null)
+                                    {
+                                        <div style="min-height: 0px;">
+                                            <div style="text-align: center">
+                                                <img height="200" width="400" src="/ImagesPosts/@item.imageComment1" />
+                                            </div>
+                                        </div>
+                                    }
+                                    else if (item.imageComment1 != null && item.imageComment2 != null && item.imageComment3 == null && item.imageComment4 == null)
+                                    {
+                                        <div class="col-md-6" style="text-align: center">
+                                            <img src="/ImagesPosts/@item.imageComment1" />
+                                        </div>
+                                        <div class="col-md-6" style="text-align: center">
+                                            <img src="/ImagesPosts/@item.imageComment2" />
+                                        </div>
+                                    }
+                                    else if (item.imageComment1 != null && item.imageComment2 != null && item.imageComment3 != null && item.imageComment4 == null)
+                                    {
+                                        <div class="row" style="min-height: 0px;">
+                                            <div class="col-md-6" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment1" />
+                                            </div>
+                                            <div class="col-md-6" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment2" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div style="min-height: 0px;">
+                                            <div style="text-align: center">
+                                                <div style="text-align: center">
+                                                    <img src="/ImagesPosts/@item.imageComment3" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else if (item.imageComment1 != null && item.imageComment2 != null && item.imageComment3 != null && item.imageComment4 != null)
+                                    {
+                                        <div class="row " style="min-height: 0px;">
+                                            <div class="col-md-6 thumbnail" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment1" />
+                                            </div>
+                                            <div class="col-md-6 thumbnail" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment2" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="row" style="min-height: 0px;">
+                                            <div class="col-md-6 thumbnail" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment3" />
+                                            </div>
+                                            <div class="col-md-6 thumbnail" style="text-align: center">
+                                                <img src="/ImagesPosts/@item.imageComment4" />
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div><br />
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model StudyWeb.Models.TypeAccount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TypeAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.typeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.display)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

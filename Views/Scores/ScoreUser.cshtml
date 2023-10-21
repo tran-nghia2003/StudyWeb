@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StudyWeb.Models.Score>
+
+@{
+    ViewBag.Title = "ScoreUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div  id="project" class="project">
+    <div class="container">
+        <table class="table" style="border: solid 2px aqua;">
+            <tr class="text-uppercase" style="text-align: center; border-bottom: solid 2px aqua; background-color: rgb(0,178,228); color: white ">
+                <th>
+                    Môn học
+                </th>
+                <th>
+                    Tên bài kiểm tra
+                </th>
+                <th>
+                    Điểm số
+                </th>
+                <th>
+                    Ngày kiểm tra
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style="text-align: center; border-bottom: solid 1.5px aqua">
+                    <td style="border-right: solid 1.5px aqua">
+                        @Html.DisplayFor(modelItem => item.Test.Subjects.subjectName)
+                    </td>
+                    <td style="border-right: solid 1.5px aqua">
+                        @Html.DisplayFor(modelItem => item.Test.nameTest)
+                    </td>
+                    <td style="border-right: solid 1.5px aqua">
+                        @Html.DisplayFor(modelItem => item.score1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateAdd)
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+

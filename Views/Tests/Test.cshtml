@@ -1,0 +1,66 @@
+﻿@model StudyWeb.Models.Test
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="project" class="project">
+    <div class="container" style="max-width:500px">
+        <div class="card" style="background: rgba(0,0,0,0.5); height: 500px;">
+            <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                <div class="row">
+                    <strong class="text-uppercase">
+                        <h1 style="color: white; font-size: 40px">Bắt đầu làm bài</h1>
+                    </strong>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="css_card-body">
+                    <div style="color: white">
+                        <img height="100" width="100" src="~/ImagesUser/@Session["imageUser"]" alt="User" />
+                    </div><br />
+                    <h1 style="color: white">@Session["fullname"]</h1>
+                    <h1 style="color: white">@Model.nameTest</h1>
+                    <h3 style="color: white">Bạn có thời gian là @Model.timeTest phút để hoàn thành.</h3>
+                    <br />
+                    <a href="@Url.Action("ListQuestion", "Questions", new { id = Model.id})">Làm Bài</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .project {
+        background-image: url('../../Content/images/nen_test.jpg');
+        min-height: 100vh;
+    }
+
+    .css_card-body {
+        text-align: center;
+        color: white;
+    }
+        .css_card-body a {
+            text-align: center;
+            font-size: 25px;
+            color: white;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background: #19dd01;
+            border: 1px;
+            border-radius: 8px;
+        }
+            .css_card-body a:hover{
+                background-color:white;
+                color: aqua;
+            }
+    .row {
+        justify-content: center
+    }
+</style>
